@@ -17,6 +17,12 @@ pipeline {
                     args "--entrypoint=''"
                 }
             }
+
+        stage('Docker') {
+            steps {
+                sh 'docker build -t my-playwright .'
+            }
+        }
             environment {
                 AWS_S3_BUCKET = 'learn-jenkins-20241205'
             }
