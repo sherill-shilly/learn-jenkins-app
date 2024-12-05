@@ -38,7 +38,7 @@ pipeline {
                 }
             }
             environment {
-                AWS_S3_BUCKET = 'your-aws-s3-bucket-name'
+                AWS_S3_BUCKET = 'learn-jenkins-20241205'
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'my-aws', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
@@ -137,7 +137,7 @@ pipeline {
             }
 
             environment {
-                CI_ENVIRONMENT_URL = 'YOUR NETLIFY SITE URL'
+                CI_ENVIRONMENT_URL = 'https://moonlit-taiyaki-1582b3.netlify.app/'
             }
 
             steps {
