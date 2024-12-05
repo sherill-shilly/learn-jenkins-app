@@ -134,7 +134,7 @@ pipeline {
             }
 
             environment {
-                CI_ENVIRONMENT_URL = 'YOUR NETLIFY SITE URL'
+                CI_ENVIRONMENT_URL = 'moonlit-taiyaki-1582b3.netlify.app'
             }
 
             steps {
