@@ -3,13 +3,14 @@ pipeline {
 
     environment {
         REACT_APP_VERSION = "1.0.$BUILD_ID"
-        AWS_DEFAULT_REGION = 'us-east-2'
+        AWS_DEFAULT_REGION = 'us-east-1'
         AWS_ECS_CLUSTER = 'LearnJenkinsApp-Cluster-Prod'
         AWS_ECS_SERVICE_PROD = 'LearnJenkinsApp-Service-Prod'
-        AWS_ECS_TD_PROD = 'LearnJenkinsApp-TaskDefinition-Prod:'
+        AWS_ECS_TD_PROD = 'LearnJenkinsApp-TaskDefinition-Prod'
     }
 
     stages {
+
         stage('Deploy to AWS') {
             agent {
                 docker {
@@ -18,6 +19,7 @@ pipeline {
                     args "-u root --entrypoint=''"
                 }
             }
+
             steps {
                 withCredentials([usernamePassword(credentialsId: 'my-aws', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                     sh '''
